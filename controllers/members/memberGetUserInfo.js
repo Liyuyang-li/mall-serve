@@ -1,4 +1,4 @@
-//manage 获取用户信息
+//会员 获取用户信息
 module.exports = (req, res) => {
     // console.log('req.userId==>',req.uid)
    api.findData('member',{

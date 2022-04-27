@@ -1,3 +1,4 @@
+//需要token验证的接口
 module.exports = [
     '/createType',
     '/findTypeList',

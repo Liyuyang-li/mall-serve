@@ -131,6 +131,9 @@ module.exports = app =>{
 
     app.get('/findAcList',controller.findAcList);
 
+    app.get('/test',controller.test);
+
+
 
 
 

@@ -1,4 +1,4 @@
-//修改密码
+//会员 修改密码
 module.exports = (req, res) => {
   api
     .findData(

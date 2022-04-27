@@ -1,4 +1,4 @@
-//manage 根据typeId编辑商品类型数据
+//会员 根据typeId编辑商品类型数据
 module.exports = (req, res) => {
   let addressId = req.body.addressId;
   delete req.body.addressId;

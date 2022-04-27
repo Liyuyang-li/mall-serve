@@ -1,4 +1,4 @@
-//manage 根据typeId查询商品类型数据
+//会员 根据typeId查询商品类型数据
 module.exports = (req, res) => {
 
   let sql = "SELECT `p`.`id`, `p`.`product_id`,`p`.`sales`,`p`.`unit`,`p`.`kucun`, `p`.`name`, `p`.`price`, `p`.`or_price` , `p`.`img`, `p`.`detail_img`, `p`.`desc`, `p`.`created_at` AS `createdAt`, `p`.`updated_at` AS `updatedAt`, `t`.`name` AS `typeName` FROM `product` AS `p` INNER JOIN `product_type` AS `pt` ON `p`.`product_id` = `pt`.`product_id` INNER JOIN `type` AS `t` ON `t`.`type_id` = `pt`.`type_id` INNER JOIN `product_user` AS `pu` ON `pu`.`product_id` = `p`.`product_id` AND `p`.`remove` = 0 AND `t`.`remove` = 0 AND `pu`.`user_id` = :userId AND `p`.`product_id` = :productId";

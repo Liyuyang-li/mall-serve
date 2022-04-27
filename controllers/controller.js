@@ -69,12 +69,14 @@ let getAcList = require(path.resolve(__basename,'controllers/manage/getAcList.js
 let updateAc = require(path.resolve(__basename,'controllers/manage/updateAc.js'));
 let removeAc = require(path.resolve(__basename,'controllers/manage/removeAc.js'));
 
+let test = require(path.resolve(__basename,'controllers/members/test.js'));
+
 
 
 module.exports = {
     //商家注册控制器
     register,
-    //f发送验证码
+    //发送验证码
     sendValidCode,
     //登录
     login,
@@ -202,5 +204,8 @@ module.exports = {
     //更新公告列表
     updateAc,
     //删除公告列表
-    removeAc
+    removeAc,
+
+    //测试
+    test,
 }

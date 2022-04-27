@@ -1,4 +1,4 @@
-//manage 根据typeId编辑商品类型数据
+//会员 根据typeId编辑商品类型数据
 module.exports = (req, res) => {
   console.log('req.body==>',req.body);
   //01-没有图片, 没有类型, 只有商品基础数据, 只修改Product模型数据

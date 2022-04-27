@@ -1,4 +1,4 @@
-// 用户获取订单列表
+//会员 获取订单列表
 module.exports = (req, res) => {
   console.log("req.query==>", req.query);
   let type = req.query.type;

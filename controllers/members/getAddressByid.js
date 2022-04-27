@@ -1,4 +1,4 @@
-// 根据addressId查询地址数据
+//会员 根据addressId查询地址数据
 module.exports = (req, res) => {
   let sql = 
   "SELECT * FROM `address` AS `a` INNER JOIN `member_address` AS `ma` ON `ma`.`address_id` = `a`.`address_id` AND `ma`.`user_id` = :userId AND `a`.`address_id` = :addressId AND `a`.`remove` = 0" ;

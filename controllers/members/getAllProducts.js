@@ -1,4 +1,4 @@
-//manage 用户获取商品信息列表
+//会员 获取商品信息列表
 module.exports = (req, res) => {
   // console.log("req.query==>", req.query);
   let params = {

@@ -1,4 +1,4 @@
-//manage 登录
+//会员 登录
 //引入jsonwebtoken模块
 const jsonwebtoken = require("jsonwebtoken");
 module.exports = (req, res) => {

@@ -1,4 +1,4 @@
-// 用户获取地址信息列表
+//会员 获取地址信息列表
 module.exports = (req, res) => {
   // console.log("req.query==>", req.query);
   let sql =

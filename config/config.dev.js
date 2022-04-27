@@ -12,14 +12,10 @@ let serverOptions = {
 exports.serverOptions = serverOptions;
 //数据库基础配置
 exports.mysqlOptions = {
-  database: "my_test",
-  user: "root",
-  password: "root",
+  database: "my_test",//数据库名称
+  user: "root",       //用户名称
+  password: "root",   //连接密码
   host: "localhost",
-  // database: "the_mall",
-  // user: "root",
-  // password: "liyuyang*12138",
-  // host: "182.61.34.149",
   dialect: "mysql",
   underscored: true,
   timezone: "+08:00",
@@ -44,7 +40,7 @@ exports.emailOptions = {
   //邮箱账号
   user: "liyuyang_yang@126.com",
   //授权码
-  pass: "OBYABLUETTKYKXGP",
+  pass: "OBYABLURTTKYKXGP",
 };
 
 //验证码有效时间

@@ -1,4 +1,4 @@
-//manage 删除购物车或订单
+//会员 删除购物车或订单
 const { Op } = require("sequelize");
 module.exports = (req, res) => {
   // console.log(typeof req.body.orderIds);
