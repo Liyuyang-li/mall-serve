@@ -1,3 +1,11 @@
+<!--
+ * @Author: liyuyang liyuyang@example.com
+ * @Date: 2023-06-02 11:49:23
+ * @LastEditors: liyuyang liyuyang@example.com
+ * @LastEditTime: 2023-06-02 11:51:09
+ * @FilePath: \mall-serve\README.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 # 服务端技术栈
   nodejs + mysql + sequelize
 
@@ -45,4 +53,15 @@
   获取node运行环境
   process.env.NODE_ENV ==> 环境名称
 
+# 目录结构说明
+  config-- 配置文件
+  controllers-- 接口文件
+  db--数据库文件
+  minddleware-- 中间件
+  routes-- 路由文件
+  service-- 服务层文件
+  upload--文件存储地址
+  utils-- 工具层
+  whiteList-- 接口限制文件
+  index.js-- 入口主文件
 
