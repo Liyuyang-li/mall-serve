@@ -1,4 +1,6 @@
+//Express 是一个保持最小规模的灵活的 Node.js Web 应用程序开发框架，为 Web 和移动应用程序提供一组强大的功能。
 const express = require('express');
+//body-parser是一个HTTP请求体解析中间件，使用这个模块可以解析JSON、Raw、文本、URL-encoded格式的请求体
 const bodyParser = require('body-parser');
 global.path = require('path');
 global.__basename = __dirname;

@@ -24,6 +24,7 @@
 
   如果开发中,启动nodejs服务器
   NODE_ENV=dev nodemon index.js
+  或cross-env NODE_ENV=dev nodemon index.js
 
   config->config.dev.js 开发环境服务器配置
   routes->routes.js 路由文件，可根据此文件查找api（暂无接口文档）

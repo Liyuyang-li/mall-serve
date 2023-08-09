@@ -5,7 +5,7 @@ let serverOptions = {
   //主机
   host: "http://127.0.0.1",
   //端口
-  port: 9000,
+  port: 9001,
   //请求体1大小限制
   limitBody:"800kb"
 };
@@ -14,7 +14,7 @@ exports.serverOptions = serverOptions;
 exports.mysqlOptions = {
   database: "my_test",//数据库名称
   user: "root",       //用户名称
-  password: "root",   //连接密码
+  password: "ytga10000",   //连接密码
   host: "localhost",
   dialect: "mysql",
   underscored: true,
