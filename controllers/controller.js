@@ -12,6 +12,7 @@ let findtypeByTypeId = require(path.resolve(__basename,'controllers/types/findty
 let saveEditType = require(path.resolve(__basename,'controllers/types/saveEditType.js'));
 let removeType = require(path.resolve(__basename,'controllers/types/removeType.js'));
 let getTypeCount = require(path.resolve(__basename,'controllers/types/getTypeCount.js'));
+let uploadTypePic = require(path.resolve(__basename,'controllers/types/uploadTypePic.js'));
 //products
 let postProduct = require(path.resolve(__basename,'controllers/products/postProduct.js'));
 let getTypeData = require(path.resolve(__basename,'controllers/products/getTypeData.js'));
@@ -52,6 +53,9 @@ let removeOrder = require(path.resolve(__basename,'controllers/members/removeOrd
 let updateOrder = require(path.resolve(__basename,'controllers/members/updateOrder.js'));
 let forgetPassword = require(path.resolve(__basename,'controllers/members/forgetPassword.js'));
 let findAcList = require(path.resolve(__basename,'controllers/members/findAcList.js'));
+let getCategoryData = require(path.resolve(__basename,'controllers/members/getCategoryData.js'));
+let createPayOrder = require(path.resolve(__basename,'controllers/members/createPayOrder.js'));
+let payNotify = require(path.resolve(__basename,'controllers/members/payNotify.js'));
 
 let getCartCount = require(path.resolve(__basename,'controllers/manage/getCartCount.js'));
 let getCartList = require(path.resolve(__basename,'controllers/manage/getCartList.js'));
@@ -95,6 +99,8 @@ module.exports = {
     removeType,
     //查询商品类型数量
     getTypeCount,
+    //上传类型图片
+    uploadTypePic,
     //获取用户信息
     getUserInfo,
 
@@ -171,6 +177,13 @@ module.exports = {
     updateOrder,
     //获取公告
     findAcList,
+    //获取商品分类（无需token）
+    getCategoryData,
+    //创建支付订单
+    createPayOrder,
+    //支付回调通知（无需token）
+    alipayNotify: payNotify.alipayNotify,
+    wechatPayNotify: payNotify.wechatPayNotify,
 
     //获取购物车数量
     getCartCount,

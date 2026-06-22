@@ -2,7 +2,7 @@
 module.exports = (req, res) => {
   // console.log("req.query==>", req.query);
   let params = {
-   userId: 'u_1614163584463',
+   userId: shopUserId,
   //  offset:Number(req.query.offset),
   //  pageSize:Number(req.query.pageSize)
  };
@@ -28,8 +28,8 @@ module.exports = (req, res) => {
     .queryData(sql, "SELECT", params)
     .then((result) => {
       result.forEach(v=>{
-        v.img = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.img}`;
-        v.detail_img = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.detail_img}`;
+        v.img = `/static/files/productImgs/${v.img}`;
+        v.detail_img = `/static/files/productImgs/${v.detail_img}`;
       })
       res.send({ msg: "查询商品列表成功", status: 1150, data: result });
     })

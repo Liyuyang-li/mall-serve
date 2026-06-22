@@ -25,7 +25,7 @@ module.exports = (req, res) => {
    pageSize:0
  };
   let sql =
-    "SELECT `t`.`type_id` AS `typeId`, `t`.`name`, `t`.`status`, `t`.`created_at` AS `createdAt`,`t`.`updated_at` AS `updatedAt` FROM `type` AS `t` INNER JOIN `type_user` AS `tu` ON `tu`.`type_id` = `t`.`type_id` AND `tu`.`user_id` = :userId AND `t`.`remove` = 0";
+    "SELECT `t`.`type_id` AS `typeId`, `t`.`name`, `t`.`status`, `t`.`parent_id` AS `parentId`, `t`.`pic`, `t`.`created_at` AS `createdAt`,`t`.`updated_at` AS `updatedAt` FROM `type` AS `t` INNER JOIN `type_user` AS `tu` ON `tu`.`type_id` = `t`.`type_id` AND `tu`.`user_id` = :userId AND `t`.`remove` = 0";
   //判断是否存在类型名称查询
   if (req.query.name) {
     sql += " AND `t`.`name` LIKE '%" + req.query.name + "%'";
@@ -47,14 +47,24 @@ module.exports = (req, res) => {
   if(req.query.offset && req.query.pageSize){
     params.offset = Number(req.query.offset);
     params.pageSize = Number(req.query.pageSize);
-    sql += " ORDER BY `t`.`created_at` DESC LIMIT :offset,:pageSize";
+    sql += " ORDER BY `t`.`parent_id` ASC, `t`.`created_at` DESC LIMIT :offset,:pageSize";
+  } else {
+    sql += " ORDER BY `t`.`parent_id` ASC, `t`.`created_at` DESC";
   }
  
   // console.log('params==>',params)
   api
     .queryData(sql, "SELECT", params)
     .then((result) => {
-      res.send({ msg: "查询商品类型列表成功", status: 1050, data: result });
+      // 将平铺数据转换为两级结构
+      const parentTypes = result.filter(item => !item.parentId);
+      const childTypes = result.filter(item => item.parentId);
+      
+      parentTypes.forEach(parent => {
+        parent.children = childTypes.filter(child => child.parentId === parent.typeId);
+      });
+      
+      res.send({ msg: "查询商品类型列表成功", status: 1050, data: result.length > 0 ? parentTypes : result });
     })
     .catch((err) => {
       console.log("err ==> ", err);

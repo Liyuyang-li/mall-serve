@@ -33,7 +33,7 @@ module.exports = (req, res) => {
       if (skus.length != 0) {
 
           //修改商品sku数据
-        await api.updateDatas('productSku', skus, ['skuId','version','color','price','remove']);
+        await api.updateDatas('productSku', skus, ['skuId','version','color','price','productId','remove']);
       }
 
     }).then(() => {

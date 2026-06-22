@@ -3,7 +3,7 @@ const express = require('express');
 //body-parser是一个HTTP请求体解析中间件，使用这个模块可以解析JSON、Raw、文本、URL-encoded格式的请求体
 const bodyParser = require('body-parser');
 global.path = require('path');
-global.__basename = __dirname;
+global.__basename = __dirname;//当前文件所在目录的绝对路径
 
 //导入服务器基础配置
 global.config = require(path.resolve(__basename,'config/config.js'));
@@ -18,6 +18,9 @@ let routes = require(path.resolve(__basename,'routes/routes.js'));
 //实例化express
 let app = new express();
 
+//店铺用户id
+global.shopUserId = 'u_1780768085445';
+
 //导入数据库连接实例
 global.sequelize = require(path.resolve(__basename,'db/connect.js'));
 
@@ -30,9 +33,6 @@ global.api = require(path.resolve(__basename,'service/api.js'));
 //导入工具层utils
 global.utils = require(path.resolve(__basename,'utils/utils.js'))
 
-//设置静态目录
-app.use(config.staticBaseUrl.base, express.static(path.resolve(__basename, 'upload')));
-
 //会在req对象添加一个body属性, 该属性保存在post请求体的参数
 //解析post请求体 application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false ,limit: config.serverOptions.limitBody}))
@@ -41,6 +41,9 @@ app.use(bodyParser.json({limit: config.serverOptions.limitBody}))
 
 //加载中间层和跨域设置
 middleware(app);
+
+//设置静态目录（放在middleware之后，确保静态文件请求也有CORS头）
+app.use(config.staticBaseUrl.base, express.static(path.resolve(__basename, 'upload')));
 
 //加载路由接口
 routes(app);

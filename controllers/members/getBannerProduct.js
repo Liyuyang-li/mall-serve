@@ -4,8 +4,8 @@ module.exports = (req, res) => {
     .findData("product", {remove:0,isbanner:1})
     .then((result) => {
       result.forEach(v=>{
-         v.img = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.img}`;
-      v.detailImg = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.detailImg}`;
+         v.img = `/static/files/productImgs/${v.img}`;
+      v.detailImg = `/static/files/productImgs/${v.detailImg}`;
       })
      
       res.send({ msg: "获取轮播商品成功", status: 1360 ,data:result});

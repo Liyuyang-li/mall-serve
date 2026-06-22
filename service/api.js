@@ -8,6 +8,7 @@ class API {
   createData(modelName, values, t) {
     //t需要事务处理标记
     if (t) {
+      //model[modelName] 模型实例
       return model[modelName].create(values, { transaction: t });
     } else {
       return model[modelName].create(values);

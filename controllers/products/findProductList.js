@@ -18,7 +18,7 @@ module.exports = (req, res) => {
   // ON `t`.`type_id` = `pt`.`type_id`
   // INNER JOIN `product_user` AS `pu` 
   // ON `pu`.`product_id` = `p`.`product_id` 
-  // AND `pu`.`user_id` = 'u_1614163584463' 
+  // AND `pu`.`user_id` = shopUserId  
   // AND `p`.`remove` = 0
   // AND `t`.`remove` = 0
   // 	AND `p`.`name` LIKE '%原%' 

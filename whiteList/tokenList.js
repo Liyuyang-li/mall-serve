@@ -46,5 +46,6 @@ module.exports = [
     '/addAnnouncement',
     '/getAcList',
     '/removeAc',
+    '/createPayOrder', // 创建支付订单（需要token）
 
 ]

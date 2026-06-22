@@ -25,6 +25,8 @@ module.exports = app =>{
    
     app.get('/getTypeCount',controller.getTypeCount);
 
+    app.post('/uploadTypePic',controller.uploadTypePic);
+
     app.get('/getUserInfo',controller.getUserInfo);
     
     app.post('/postProduct',controller.postProduct);
@@ -131,7 +133,19 @@ module.exports = app =>{
 
     app.get('/findAcList',controller.findAcList);
 
+    app.get('/getCategoryData',controller.getCategoryData);
+
     app.get('/test',controller.test);
+
+    // ========== 支付相关路由 ==========
+    // 创建支付订单（需要token）
+    app.post('/createPayOrder', controller.createPayOrder);
+    
+    // 支付宝异步通知回调（无需token，由支付宝服务器调用）
+    app.post('/alipayNotify', controller.alipayNotify);
+    
+    // 微信支付异步通知回调（无需token，由微信服务器调用）
+    app.post('/wechatPayNotify', controller.wechatPayNotify);
 
 
 

@@ -1,8 +1,9 @@
 // 商家获取公告列表
 module.exports = (req, res) => {
   console.log("req.query==>", req.query);
+  
   let params = {
-    userId: 'u_1614163584463',
+    userId: shopUserId,
   };
   let sql =
     "SELECT `a`.`ac_id` AS `acId`, `a`.`text`, `a`.`created_at` AS `createdAt`, `a`.`id` FROM `announcement` AS `a` INNER JOIN `announcement_user` AS `au` ON `au`.`ac_id` = `a`.`ac_id` AND `au`.`user_id` = :userId  AND `a`.`remove` = 0 ";

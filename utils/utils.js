@@ -122,5 +122,27 @@ class Utils {
       });
     });
   }
+
+  //上传类型图片
+  uploadTypeImg(imgBase64, type) {
+    //imgBase64: 图片base64编码, string
+    return new Promise((resolve, reject) => {
+      let buffer = Buffer.from(imgBase64, "base64");
+      //创建文件名称
+      let filename = uuid.v1() + `.${type}`;
+      //文件路径
+      let fileUrl = path.resolve(__basename, `upload/typeImgs/${filename}`);
+      //将buffer写入服务器中
+      fs.writeFile(fileUrl, buffer, (err) => {
+        if (err) {
+          //上传图片失败
+          reject(err);
+        } else {
+          //上传图片成功，返回文件名称
+          resolve(filename);
+        }
+      });
+    });
+  }
 }
 module.exports = new Utils();

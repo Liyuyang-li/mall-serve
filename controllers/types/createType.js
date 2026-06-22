@@ -15,6 +15,8 @@ module.exports = (req, res) => {
           typeId: tid,
           name: req.body.name,
           status: req.body.status,
+          parentId: req.body.parentId || null,
+          pic: req.body.pic || null,
         },
         t
       );

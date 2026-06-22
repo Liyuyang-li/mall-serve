@@ -31,15 +31,24 @@ module.exports = (req, res) => {
               })
               .then((result1) => {
                 console.log(result1)
-                if(result1){
-                  api
-                  .createData("memberUser", {
-                    userId: "u_1614163584463",
-                    muserId: userId,
+                if (result1) {
+                  //获取第一个店铺用户Id
+                  let shopUserId = '';
+                  api.findData("user").then(result => {
+                    console.log('获取第一个店铺用户Id==>', result);
+                    if (result.length > 0) {
+                      shopUserId = result[0].dataValues.userId || '';
+                      api
+                        .createData("memberUser", {
+                          userId: shopUserId,
+                          muserId: userId,
+                        })
+                        .then(() => {
+                          res.send({ msg: "注册成功", data: result1, status: 1210 });
+                        });
+                    }
                   })
-                  .then(() => {
-                    res.send({ msg: "注册成功", data: result1, status: 1210 });
-                  });
+
                 }
               })
               .catch((err) => {

@@ -9,8 +9,8 @@ module.exports = (req, res) => {
         type:req.query.type
       }).then(result => {
         result.forEach(v=>{
-          v.img = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.img}`;
-          v.detail_img = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.detail_img}`;
+          v.img = `/static/files/productImgs/${v.img}`;
+          v.detail_img = `/static/files/productImgs/${v.detail_img}`;
         })
         res.send({msg: '查询订单列表成功', status: 1380, data: result});
       }).catch(err => {
@@ -51,8 +51,8 @@ module.exports = (req, res) => {
       type:type
     }).then(result => {
       result.forEach(v=>{
-        v.img = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.img}`;
-        v.detail_img = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.detail_img}`;
+        v.img = `/static/files/productImgs/${v.img}`;
+        v.detail_img = `/static/files/productImgs/${v.detail_img}`;
         v.costPrice = Number(v.realPrice) * Number(v.count);
       })
       res.send({msg: '查询订单列表成功', status: 1380, data: result});

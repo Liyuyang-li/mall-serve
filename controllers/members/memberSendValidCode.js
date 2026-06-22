@@ -10,8 +10,8 @@ module.exports = (req, res) => {
      email:req.body.email,
      validCode:code
    }).then((result) => {
-    res.send({msg: '发送验证码成功', status: 1220, data: result});
-    return;
+    // res.send({msg: '发送验证码成功', status: 1220, data: result});
+    // return;
        //发送邮件
       utils.sendEmail({
         //发送者邮箱
@@ -19,7 +19,7 @@ module.exports = (req, res) => {
         //接收者邮箱列表
         to: req.body.email,
         //邮件主题
-        subject: "后台管理系统验证码",
+        subject: "会员注册验证码",
         //邮件文本内容
         text: `验证码为：${code}，有效时间五分钟。`,
         //邮件html内容

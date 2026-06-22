@@ -35,8 +35,8 @@ module.exports = (req, res) => {
           })
           .then((result) => {
             result.forEach((v) => {
-              v.img = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.img}`;
-              v.detail_img = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.detail_img}`;
+              v.img = `/static/files/productImgs/${v.img}`;
+              v.detail_img = `/static/files/productImgs/${v.detail_img}`;
               v.costPrice = Number(v.realPrice) * Number(v.count);
             });
             res.send({ msg: "生成订单成功", status: 1410, data: result });
@@ -79,8 +79,8 @@ module.exports = (req, res) => {
           .then((result) => {
             let totalPrice = 0;
             result.forEach((v) => {
-              v.img = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.img}`;
-              v.detail_img = `${config.staticBaseUrl.url}${config.staticBaseUrl.base}/productImgs/${v.detail_img}`;
+              v.img = `/static/files/productImgs/${v.img}`;
+              v.detail_img = `/static/files/productImgs/${v.detail_img}`;
               v.costPrice = Number(v.realPrice) * Number(v.count);
               totalPrice += v.costPrice;
             });

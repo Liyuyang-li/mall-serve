@@ -1,12 +1,10 @@
-//manage 获取商品类型数据
+// 获取商品类型数据（无需token验证）
 module.exports = (req, res) => {
   let sql =
-    "SELECT `t`.`type_id` AS `typeId`, `t`.`name`, `t`.`status`, `t`.`parent_id` AS `parentId`, `t`.`created_at` AS `createdAt`,`t`.`updated_at` AS `updatedAt` FROM `type` AS `t` INNER JOIN `type_user` AS `tu` ON `tu`.`type_id` = `t`.`type_id` AND `tu`.`user_id` = :userId AND `t`.`remove` = 0 AND `t`.`status` = 1" ;
-  let params = {
-    userId: req.uid
-  }
+    "SELECT `t`.`type_id` AS `typeId`, `t`.`name`, `t`.`status`, `t`.`parent_id` AS `parentId`, `t`.`pic`, `t`.`created_at` AS `createdAt`,`t`.`updated_at` AS `updatedAt` FROM `type` AS `t` WHERE `t`.`remove` = 0 AND `t`.`status` = 1";
+  
   api
-    .queryData(sql, "SELECT", params)
+    .queryData(sql, "SELECT", {})
     .then((result) => {
       // 返回两级结构
       const parentTypes = result.filter(item => !item.parentId);

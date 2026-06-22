@@ -149,6 +149,7 @@ module.exports = (app) => {
       console.log('token验证url==>', url);
       let token = null;
       if (req.headers.token) {
+        console.log('req.headers.token==>', req.headers.token);
         let tokens = req.headers.token.split("; ");
         let tokenOption = {};
         tokens.forEach((v) => {
